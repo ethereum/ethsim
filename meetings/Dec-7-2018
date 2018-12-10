@@ -1,0 +1,88 @@
+# Simulation/Testnet Meeting
+**December 7, 2019 16:00 UTC**
+
+These notes have been moved and incorporated into the notes google doc here to allow comments:
+https://docs.google.com/document/d/1pIW6Uac5Qanx_L5Y_G4Ucrx_gjITkBgzQKmlBQbW3Cg/edit
+
+The repo for this WG is now:
+https://github.com/ethereum/ethsim
+The repo will be updated to be move the existing notes into the appropriate places.
+
+**Attendees:**
+- Zak Cole (Whiteblock)
+- Terence Tsao (Prysmatic Labs)
+- Shahan Khatchadourian (Pegasys)
+- Tomasz S
+- Alexey Akhunov 
+- Greg (Chainsafe/loadstar)
+- jwasinger
+- Nicholas Lin
+- Mamy Ratsimbazafy (Status)
+
+*Notes taken by Mamy Ratsimbazafy and others*
+
+---
+### Video of Call: https://youtu.be/DE6IHSwLJPs
+----
+### Agenda
+The purpose of this call was to present and discuss a new approach toward testing and test networks in Ethereum. This methodology will make the testing process faster, easier, and more reliable while reducing reliance on community participation since behaviors and activities can be automated and controlled. Edge cases can be accounted for, performance at scale can be observed, and results are deterministic.
+
+The first implentation of the proposed testnet will be permission based. Individual participants can access a pre-configured and managed test network and also join these purpose-built testnets by bootstrapping their own nodes. Data visualization GUI/network explorer tools are available as well.
+
+- Working groups and other projects can have their own purpose built test network. 
+- Test network managed by [Whiteblock](https://www.whiteblock.io) using framework.
+- Participants define the configuration and parameters of the test network, such as consensus algorithm, gas limits, etc.  
+- Some features/capabilities:
+    - Networks can be quickly destroyed/recreated 
+    - Nodes provisioned
+    - Automate and control behaviors of nodes, p2p network conditions, transactional activity, generating and funding accounts, etc. 
+    - Control network parameters such as latency, packet loss, bandwidth constraints, and other conditions between nodes to replicate real-world performance 
+    - Implement certain test scenarios to observe how various environmental conditions effect performance and processes 
+    - Deterministic testing in a controlled environment, repeatable results
+    - Aggregate and visualize data
+
+----
+### Questions & Comments
+- *Alexey Akhunov:* What kind of working groups do you mean?
+
+- *Zak Cole:* Anyone looking to run practical tests in order to observe performance, troubleshoot, etc. Not just working groups though, for example, working with ETH Research testing libp2p for several months. Will release data and report on these testing initiatives soon.
+
+- *Alexey:* The activity generator seems to be the most important. 
+
+- *Terence Tsao:* Currently in research phase and trying to identify protocols. Working with libp2p and trying to put relay nodes and connect beacon node to them, etc.
+
+- *Alexey:* Idea has potential, but currently people are expected to present their use case, but in some cases it might make more sense to showcase the capabilities as a lot of people don’t really know what to test for. Maintaining skepticism but interested in idea. Want to see it in action.
+
+- There's some confusion when we refer to these as testnets since the current way we think of test nets are different. Should we call them testnet or something else?
+
+- Should we collaborate and present EIP for this new testing methodology?
+
+----
+### Additional Notes
+- Test plan can be shared publicly.
+- Test libraries will be open-source
+- ETH 2.0 tests - Likely too early for full system tests as the specs have been moving a lot. People are trying to catch up so testing and test cases is hard. Could be useful for validating and analyzing existing protocols.
+
+---
+### Action Items
+- [ ] Create public repo for project
+- [ ] Define testing criteria
+- [ ] Solicit input from working groups that want to perform tests
+- [ ] Identify system requirements
+- [ ] Write out test plan documents. If anyone has any ideas, write out your own and share it in the repo that will be created. Reference [this document](https://notes.ethereum.org/Q_kQKXZUQD29YCshej1qPQ) as a template for test plan documents.
+
+- [ ] Build out a generic testnet to demonstrate proof of concept.
+
+- [ ] Put together some sort of document, plan or other material to present at next core dev meeting (January 4)
+
+----
+
+**Reference Materials**
+
+[Simulation Working Group Google Doc](https://docs.google.com/document/d/1pIW6Uac5Qanx_L5Y_G4Ucrx_gjITkBgzQKmlBQbW3Cg/edit)
+[ETH Research Sharding P2P POC Test Plan Document](https://notes.ethereum.org/Q_kQKXZUQD29YCshej1qPQ) 
+[Whiteblock Research Relating To Uncle Rate](https://whiteblock.io/library/ubiq-report.pdf)
+[Additional Research](https://whiteblock.io/library/)
+[Wittgenstein Consensus Simulator](https://github.com/ConsenSys/wittgenstein/tree/master/resources/Data)
+
+
